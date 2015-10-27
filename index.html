@@ -1,1 +1,456 @@
-Hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Photoswipe + Justified.js mashup</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- jQuery needed for the scripts & galleries
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+  
+  <!-- Justified.js
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/jquery.justified.images.css">
+  <script src="js/jquery.justified.images.js"></script>
+  
+  <!-- photoswipe
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Core CSS file -->
+  <link rel="stylesheet" href="css/photoswipe.css">
+  <!-- Skin CSS file (optional) In folder of skin CSS file there are also: - .png and .svg icons sprite, - preloader.gif (for browsers that do not support CSS animations) -->
+  <link rel="stylesheet" href="css/photoswipe.skin.css">
+  <!-- Core JS file -->
+  <script src="js/photoswipe.js" type="text/javascript"></script>
+  <!-- UI JS file -->
+  <script src="js/photoswipe.ui.js" type="text/javascript"></script>
+  
+  <!-- fine-tuning of this website -->
+  <style type="text/css">
+      
+      #top {
+          background: url("images/IMG_6628.jpg");
+          height: 100vh;
+          width: 100%;
+      }
+      
+      #intro {
+          height: 100vh;
+          width: 60%;
+          margin: 0 auto;
+      }
+      
+      #intro-mid {
+          position: relative;
+          top: 40%;
+          color: white;
+          padding: 20px;
+          border-radius: 25px;
+      }
+      
+      #intro-mid h2 {
+          text-align: center;
+      }
+      #footer {
+          background: rgb(50, 50, 50);
+          padding: 20px 0 20px 0;
+          width: 100%;
+          
+      }
+      #author-info {
+          color: white;
+          margin: 0 auto;
+          
+      }
+      
+      .navbar {
+          display: none;
+      }
+  
+      section {
+        padding-top: 66px;
+        margin-top: -50px;
+    }
+  @media (min-width: 1100px) {
+         /* Navbar */
+  .navbar + .docs-section {
+    border-top-width: 0; }
+  .navbar,
+  .navbar-spacer {
+    display: block;
+    width: 100%;
+    height: 6.5rem;
+    background: #fff;
+    z-index: 99;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee; }
+  .navbar-spacer {
+    display: none; }
+  .navbar > .container {
+    width: 100%; }
+  .navbar-list {
+    list-style: none;
+    margin-bottom: 0; }
+  .navbar-item {
+    position: relative;
+    float: left;
+    margin-bottom: 0; }
+  .navbar-link {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    margin-right: 35px;
+    text-decoration: none;
+    line-height: 6.5rem;
+    color: #222; }
+  .navbar-link.active {
+    color: #33C3F0; }
+  .navbar {
+    /*position: fixed;
+    top: 0;
+    left: 0;*/ }
+  .navbar-spacer {
+    display: block; }
+  /* Re-overiding the width 100% declaration to match size of % based container */
+  .navbar > .container {
+    width: 80%; }
+  
+  .nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    z-index: 199;
+  }
+  .nav-li-container {
+      margin: 0 auto;
+  }
+  
+  }
+  </style>
+  
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div id="top">
+      <section id="intro">
+          <div id="intro-mid">
+            <h2>Photoswipe + Justified.js mashup</h2>
+        </div>
+      </section>
+      <div class="nav-container">
+          <div class="nav-li-container container">
+        <nav class="navbar">
+      
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="#intro">Intro</a></li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#example-1">Example 1</a>
+          </li>
+          <li class="navbar-item"><a class="navbar-link" href="#example-2">Example 2</a></li>
+          <li class="navbar-item">
+            <a class="navbar-link" href="#steps">How to...</a>
+          </li>
+          <li class="navbar-item"><a class="navbar-link" href="#known-bugs">Known bugs</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#unknown-bugs">Unknown bugs</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#footer">About</a></li>
+        </ul>
+      
+        </nav>
+              </div>
+      </div>
+  </div>
+  
+  <div class="container">
+      
+      <section id="intro-text">
+          <h3>Introduction</h3>
+          <p>This is a quick and dirty mashup of a nice <a href="http://photoswipe.com/">photoswipe javascript gallery</a> (which supports touch input) with <a href="http://nitinhayaran.github.io/Justified.js/demo/">Justified.js</a> (which provides layout of the images in the gallery) with images sourced from <a href="https://www.flickr.com">Flickr</a> albums (which conveniently provides images of various sizes). You can use this demo page as an example how to implement this quick'n'dirty mashup.</p>
+          <p>Because the original justified.js is not responsive, I added a hack which recalculates the width of the picture album element every time the size of browser window changes. This adds a bit of unnecessary work I guess, but saves me from really digging into the code and keeps it nicely cargo-culty.</p>
+      </section>
+      
+      <section id="example-1">
+          <h3>Example</h3>
+          <div class="image-container" id="images1" itemscope="" itemtype="http://schema.org/ImageGallery" data-pswp-uid="1"></div>
+      </section>
+      
+      <section id="example-2">
+          <h3>Example no 2</h3>
+          <div class="image-container" id="images2" itemscope="" itemtype="http://schema.org/ImageGallery" data-pswp-uid="2"></div>
+          <script type="text/javascript">
+
+	$(document).ready(function(){
+                prepareFlickrAlbum("72157657489437146", "images1", 20);
+		prepareFlickrAlbum("72157641414241043", "images2", 20);
+		
+		
+		
+	});
+        </script>
+      </section>
+      
+      <section id="steps">
+          <h3>How to implement this mashup</h3>
+          
+          <p>Steps:</p>
+        
+        <ol>
+            <li><a href="#include-jquery">Include jQuery</a></li>
+            <li><a href="#include-justified">Include Justified.js and css</a></li>
+            <li><a href="#include-photoswipe">Include photoswipe js and css</a></li>
+            <li><a href="#include-photoswipe-html">Include photoswipe HTML</a></li>
+            <li><a href="#include-bits">Include last bits of js after that</a></li>
+            <li><a href="#include-bits">Specify where to put albums</a></li>
+        </ol>
+      </section>
+      <section id="include-jquery">
+          <h4>1. Include jQuery</h4>
+          <p>Somewhere in the header</p>
+            <pre>
+            <code>
+&lt;script src="https://code.jquery.com/jquery-1.11.0.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js" type="text/javascript"&gt;&lt;/script&gt;
+            </code>
+            </pre>
+      </section>
+      
+      <section id="include-justified">
+          <h4>2. Include Justified.js and css</h4>
+          <p>This also goes to the header...</p>
+            <pre>
+            <code>
+&lt;link rel="stylesheet" src="css/jquery.justified.images.css"&gt;
+&lt;script src="js/jquery.justified.images.js" type="text/javascript"&gt;&lt;/script&gt;
+            </code>
+            </pre>
+      </section>
+      
+      <section id="include-photoswipe">
+          <h4>3. Include Photoswipe js and css</h4>
+          <p>...and this one as well.</p>
+            <pre>
+            <code>
+&lt;link rel="stylesheet" href="css/photoswipe.css"&gt;
+&lt;link rel="stylesheet" href="css/photoswipe.skin.css"&gt;
+&lt;script src="js/photoswipe.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="js/photoswipe.ui.js" type="text/javascript"&gt;&lt;/script&gt;
+            </code>
+            </pre>
+      </section>
+      
+      <section id="include-photoswipe-html">
+          <h4>4. Include Photoswipe HTML</h4>
+          <p>This needs to be included at the end of the page.</p>
+            <pre>
+            <code>
+&lt;!-- photoswipe elements --&gt;
+
+&lt;!-- Root element of PhotoSwipe. Must have class pswp. --&gt;
+&lt;div class=&quot;pswp&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
+
+    &lt;!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). --&gt;
+    &lt;div class=&quot;pswp__bg&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- Slides wrapper with overflow:hidden. --&gt;
+    &lt;div class=&quot;pswp__scroll-wrap&quot;&gt;
+
+        &lt;!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. --&gt;
+        &lt;div class=&quot;pswp__container&quot;&gt;
+            &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. --&gt;
+        &lt;div class=&quot;pswp__ui pswp__ui--hidden&quot;&gt;
+
+            &lt;div class=&quot;pswp__top-bar&quot;&gt;
+
+                &lt;!--  Controls are self-explanatory. Order can be changed. --&gt;
+
+                &lt;div class=&quot;pswp__counter&quot;&gt;&lt;/div&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--close&quot; title=&quot;Close (Esc)&quot;&gt;&lt;/button&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--share&quot; title=&quot;Share&quot;&gt;&lt;/button&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--fs&quot; title=&quot;Toggle fullscreen&quot;&gt;&lt;/button&gt;
+
+                &lt;button class=&quot;pswp__button pswp__button--zoom&quot; title=&quot;Zoom in/out&quot;&gt;&lt;/button&gt;
+
+                &lt;!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR --&gt;
+                &lt;!-- element will get class pswp__preloader--active when preloader is running --&gt;
+                &lt;div class=&quot;pswp__preloader&quot;&gt;
+                    &lt;div class=&quot;pswp__preloader__icn&quot;&gt;
+                      &lt;div class=&quot;pswp__preloader__cut&quot;&gt;
+                        &lt;div class=&quot;pswp__preloader__donut&quot;&gt;&lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&quot;&gt;
+                &lt;div class=&quot;pswp__share-tooltip&quot;&gt;&lt;/div&gt; 
+            &lt;/div&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--arrow--left&quot; title=&quot;Previous (arrow left)&quot;&gt;
+            &lt;/button&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--arrow--right&quot; title=&quot;Next (arrow right)&quot;&gt;
+            &lt;/button&gt;
+
+            &lt;div class=&quot;pswp__caption&quot;&gt;
+                &lt;div class=&quot;pswp__caption__center&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;!-- end of photoswipe elements --&gt;
+            </code>
+            </pre>
+      </section>
+      
+      <section id="include-bits">
+          <h4>5. Include last bits of photoswipe and Flick js code</h4> 
+          <p>(I promise, this is the last one).</p>
+            <pre>
+            <code>
+&lt;script src="js/flickr.fetch.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="js/photoswipe.after.html.js" type="text/javascript"&gt;&lt;/script&gt;
+            </code>
+            </pre>
+      </section>
+      
+      <section id="known-bugs">
+          <h3>Known bugs</h3> 
+          <ul>
+              <li>Some duplicate work being done when the browser is resized.</li>
+          </ul>
+      </section>
+      <section id="unknown-bugs">
+          <h3>Unknown bugs</h3> 
+          <ul>
+              <li>None, as far as I know.</li>
+          </ul>
+      </section>
+        
+
+  
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  <!-- end of photoswipe elements -->
+  <script src="js/flickr.fetch.js" type="text/javascript"></script>
+  <script src="js/photoswipe.after.html.js" type="text/javascript"></script>
+  
+  
+  </div>
+  <div id="footer">
+      
+      <section id="author-info" class="container">
+          <h3>About</h3> 
+          <p>
+              Follow me on twitter, instagram, github, facebook, linkedin, etc.
+          </p>
+      </section>
+      </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

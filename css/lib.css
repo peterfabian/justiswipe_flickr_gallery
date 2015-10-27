@@ -1,0 +1,19 @@
+/* 
+    Created on : Oct 18, 2015, 2:41:08 PM
+    Author     : Peter Fabian
+*/
+
+/* justified js style */
+.image-container{
+    position: relative;
+}
+.photo-container{
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+.image-thumb{
+    position: relative;
+    background-color: #eee;
+}
+
