@@ -226,7 +226,7 @@
             <li><a href="#include-photoswipe">Include photoswipe js and css</a></li>
             <li><a href="#include-photoswipe-html">Include photoswipe HTML</a></li>
             <li><a href="#include-bits">Include last bits of js after that</a></li>
-            <li><a href="#include-bits">Specify where to put albums</a></li>
+            <li><a href="#insert-album">Specify where to put albums</a></li>
         </ol>
       </section>
       <section id="include-jquery">
@@ -349,6 +349,23 @@
             <code>
 &lt;script src="js/flickr.fetch.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;script src="js/photoswipe.after.html.js" type="text/javascript"&gt;&lt;/script&gt;
+            </code>
+            </pre>
+      </section>
+      
+      <section id="insert-album">
+          <h4>6. Specify where to put the album</h4>
+          <p>The elements inside the div will be created automatically. Just call the prepareFlickrAlbum function and specify the ID of the flickr album, div id and number of pictures to get from the album.</p>
+            <pre>
+            <code>
+&lt;div class=&quot;image-container&quot; id=&quot;images1&quot; itemscope=&quot;&quot; itemtype=&quot;http://schema.org/ImageGallery&quot; data-pswp-uid=&quot;1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;image-container&quot; id=&quot;images2&quot; itemscope=&quot;&quot; itemtype=&quot;http://schema.org/ImageGallery&quot; data-pswp-uid=&quot;2&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function(){
+          prepareFlickrAlbum(&quot;72157657489437146&quot;, &quot;images1&quot;, 20);
+          prepareFlickrAlbum(&quot;72157641414241043&quot;, &quot;images2&quot;, 20);
+    });
+&lt;/script&gt;
             </code>
             </pre>
       </section>
