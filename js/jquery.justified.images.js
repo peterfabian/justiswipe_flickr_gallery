@@ -88,7 +88,7 @@
                 totalWidth += block.width;
             });
             var perRowWidth = totalWidth / Math.ceil(totalWidth / w);
-            console.log('rows', Math.ceil(totalWidth / w));
+            //console.log('rows', Math.ceil(totalWidth / w));
             var tw = 0;
             while (baseLine < limit) {
                 var row = {
@@ -113,7 +113,7 @@
                 baseLine += c;
                 rows.push(row);
             }
-            console.log(rows.length, rows);
+            //console.log(rows.length, rows);
             /*for (var i = 1; i < rows.length; i++) {
                 var row = rows[i];
                 for (var j = 0; j < row.photos.length; j++) {
@@ -138,8 +138,8 @@
                 }
 
                 // Ratio of actual width of row to total width of images to be used.
-                var r = availableRowWidth / row.width, //Math.min(w / row.width, this.options.maxScale),
-                    c = row.photos.length;
+                var c = row.photos.length;
+                var r = availableRowWidth / (row.width + (c - 1) * border); //Math.min(w / row.width, this.options.maxScale),
 
                 // new height is not original height * ratio
                 var ht = Math.min(Math.floor(h * r), parseInt(this.options.maxRowHeight,10));

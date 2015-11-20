@@ -7,7 +7,7 @@ var artificialResponsiveness = function(e){
 		var album_div = document.getElementById(destination_id.replace("#", ""));
 		var new_width = album_div.parentNode.clientWidth;
 		var flickr_data = album_element_mapping[key].data_st;
-		if (new_width != album_element_mapping[key].last_width) {
+		if (new_width !== album_element_mapping[key].last_width) {
 			$(destination_id).css("width", new_width);
 			showPhotos(flickr_data.photoset.photo, destination_id, album_element_mapping[key].row_height_);
 			// since showPhotos destroys the contents of description_id element, we need to re-create the photoswipe, too :/
