@@ -9,7 +9,7 @@ var artificialResponsiveness = function(e){
 		var flickr_data = album_element_mapping[key].data_st;
 		if (new_width !== album_element_mapping[key].last_width) {
 			$(destination_id).css("width", new_width);
-			showPhotos(flickr_data.photoset.photo, destination_id, album_element_mapping[key].row_height_);
+			showPhotos(flickr_data.photoset.photo, destination_id, album_element_mapping[key].row_height_, album_element_mapping[key].margin);
 			// since showPhotos destroys the contents of description_id element, we need to re-create the photoswipe, too :/
 			initPhotoSwipeFromDOM(destination_id);
 			last_width = new_width;
@@ -19,10 +19,11 @@ var artificialResponsiveness = function(e){
 
 window.onresize = artificialResponsiveness;
 
-var prepareFlickrAlbum = function(album_id, destination_id, max_pictures, row_height){
+var prepareFlickrAlbum = function(album_id, destination_id, max_pictures, row_height, margin){
 	// initialize element width
 	max_pictures = typeof max_pictures !== 'undefined' ? max_pictures : 30;
 	row_height = typeof row_height !== 'undefined' ? row_height : 200;
+	margin = typeof margin !== 'undefined' ? margin : 3;
 	
 	destination_id = "#" + destination_id;
 	$.ajax({
@@ -44,6 +45,7 @@ var prepareFlickrAlbum = function(album_id, destination_id, max_pictures, row_he
 					last_width: 0,
 					max_pictures_: max_pictures,
 					row_height_: row_height,
+					margin: margin
 				};
 				
 				artificialResponsiveness();
@@ -51,7 +53,7 @@ var prepareFlickrAlbum = function(album_id, destination_id, max_pictures, row_he
 		});
 }
 
-var showPhotos = function(photos, destination_id, row_height){
+var showPhotos = function(photos, destination_id, row_height, margin){
 	$(destination_id).empty().justifiedImages({
 		images : photos,
 		rowHeight: row_height,
@@ -67,7 +69,7 @@ var showPhotos = function(photos, destination_id, row_height){
 		getSize: function(photo){
 			return {width: photo.width_s, height: photo.height_s};
 		},
-		margin: 3,
+		margin: margin,
 		
 		template: function(photo){
 			var htmlString = "";
